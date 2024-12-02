@@ -176,18 +176,18 @@ header#result-page {
     font-size: 86px;
     font-weight: bold;
     margin-bottom: 60px;
-    background: linear-gradient(45deg, #FFB200, #FFD700);
+    font-family: 'Brush Script MT', cursive; /* 手書き風のフォントを指定 */
+    background: linear-gradient(45deg, #FFB200 30%, #FFD700 70%); /* 金色のグラデーションをより明確に */
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: rotate(-7deg);
-
-    /* テキストシャドウで光の輝きを表現 */
-    text-shadow: 
-    0 0 5px rgba(255, 255, 224, 0.7),  /* 柔らかい黄色を控えめに */
-    2px 2px 6px rgba(0, 0, 0, 0.5),    /* ベースの影を弱める */
-    4px 4px 10px rgba(0, 0, 0, 0.3);   /* 遠い影を少し大きくする */
-
+    background-clip: text;
+    -webkit-text-fill-color: #FFD700; /* ゴールド色をそのまま設定 */
+    transform: rotate(-7deg); /* 少し傾けて力強さを演出 */
+ text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 215, 0, 1); /* 光沢感のあるシャドウ */
+ 
+  animation: glow 1.5s ease-in-out infinite alternate; /* 輝きのアニメーション */
 }
+
+
 
 
 @media screen and (max-width: 767px) {
@@ -205,6 +205,82 @@ header#result-page {
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
 }
 
+
+.badge-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* 横幅が狭い時に折り返し可能に */
+  gap: 20px;
+  margin: 120px auto 40px auto;
+  max-width: 100%; /* 親要素が画面幅を超えないように */
+  padding: 0px;
+  box-sizing: border-box; /* パディングを含めた計算 */
+}
+
+.badge {
+  width: 150px; /* 固定幅でサイズを指定 */
+  height: 150px; /* 高さも固定して正方形に */
+  background: linear-gradient(45deg, #ff5e57 10%, #ff9e9e 60%, #ffebf2);
+  border-radius: 50%; /* 正円を維持 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0; /* 親要素の幅が狭くなっても縮小しない */
+}
+
+
+
+
+.badge-content {
+  text-align: center;
+  color: white;
+}
+
+.badge-number {
+  font-size: 36px; /* フォントサイズを大きく */
+  font-weight: bold; /* 太文字で目立たせる */
+  color: #FFD700; /* ゴールドで派手に */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 215, 0, 1); /* 光沢感のあるシャドウ */
+  display: block;
+  letter-spacing: 2px; /* 文字間隔を広げて迫力を出す */
+  animation: glow 1.5s ease-in-out infinite alternate; /* 輝きのアニメーション */
+}
+
+/* スマホ用メディアクエリ */
+@media (max-width: 768px) {
+  .badge {
+  width: 100px; /* 固定幅でサイズを指定 */
+  height: 100px; /* 高さも固定して正方形に */
+}
+  .badge-number {
+    font-size: 24px; /* スマホ画面用のフォントサイズ */
+    letter-spacing: 1px; /* 文字間隔も調整 */
+  }
+}
+
+
+.badge-text {
+  font-size: 12px;
+  margin-top: 5px;
+  white-space: nowrap; /* 折り返しを防ぐ */
+  overflow: hidden; /* 文字が要素を超えた場合に隠す */
+  text-overflow: ellipsis; /* 必要に応じて省略記号を付ける */
+}
+
+.badge::after {
+  content: "";
+  position: absolute;
+  bottom: -12px; /* 反射をバッジの下に配置 */
+  left: 0;
+  right: 0;
+  height: 15px; /* 反射の高さ */
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0)); /* 反射部分の透明度 */
+  transform: scaleY(-1); /* バッジを垂直に反転して反射させる */
+  filter: blur(2px); /* 反射にぼかしを加えてリアル感をアップ */
+  opacity: 0.6; /* 反射部分を少し透明に */
+}
 
 
 
@@ -244,6 +320,7 @@ header#result-page {
   font-size: 46px;
     background: linear-gradient(135deg, #ff5e57, #ffb200);
     -webkit-background-clip: text;
+  background-clip: text; 
     -webkit-text-fill-color: transparent;
 width: 100%; /* 幅いっぱいに伸ばす */
 }
@@ -265,9 +342,6 @@ width: 100%; /* 幅いっぱいに伸ばす */
     transition: transform 0.3s ease;
 }
 
-.merit-item:hover {
-    transform: scale(1.05);
-}
 
 #merits .merit-item h3 {
     font-size: 24px;
@@ -290,10 +364,6 @@ width: 100%; /* 幅いっぱいに伸ばす */
     transition: color 0.3s ease;
 }
 
-.merit-item:hover i {
-    color: #ffb200;
-}
-
 
 /* サポートセクション */
 #supports {
@@ -303,7 +373,7 @@ width: 100%; /* 幅いっぱいに伸ばす */
 }
 
 #supports h2 {
-  margin: 20px 0 30px 0;
+    margin: 20px 0 30px 0;
     font-size: 36px;
     font-family: 'A1 Mincho', serif;
     margin-bottom: 40px;
@@ -313,11 +383,21 @@ width: 100%; /* 幅いっぱいに伸ばす */
     padding-bottom: 30px;
 }
 
+/* カードをラップするコンテナ */
+.support-items-container {
+    display: flex;
+    flex-wrap: wrap; /* 折り返し可能にする */
+    justify-content: center; /* 横に並べた時の中央揃え */
+    gap: 20px; /* カード間の余白 */
+    max-width: calc(2 * 400px + 20px); /* 最大で2列分の幅 + gapを設定 */
+    margin: 0 auto; /* 親要素を中央揃え */
+}
+
+/* 各カードのスタイル */
 .support-item {
-    display: inline-block;
-    width: 90%;
-    max-width: 400px;
-    margin: 20px;
+    flex: 1 1 calc(50% - 20px); /* 50%幅 - 余白分 */
+    max-width: 400px; /* 最大幅を設定 */
+    margin: 0; /* 外側の余白はgapで管理 */
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -344,29 +424,28 @@ width: 100%; /* 幅いっぱいに伸ばす */
 .support-item p {
     font-size: 16px;
     color: #555;
-  margin: 10px;
+    margin: 10px;
 }
 
-/* サポートセクションのカードホバー効果 */
-.support-item:hover {
-    transform: scale(1.05);
-    background: #fef8e0; /* 軽い背景色の変化 */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* ホバー時の影の強化 */
-}
-
+/* 横幅が狭い場合に1列表示に切り替える */
 @media (max-width: 600px) {
+  .support-item {
+      flex: 1 1 100%; /* 横幅いっぱいを使用 */
+  }
+
   #supports {
-    padding: 5px;
+      padding: 5px;
   }
 
   #supports h2 {
-    font-size: 1.6rem;
-    width: 100%; /* 横幅いっぱいに広げる */
-    text-align: center; /* 中央寄せ */
-    white-space: normal; /* 改行させる */
-    padding: 5px 5px;
+      font-size: 1.6rem;
+      width: 100%; /* 横幅いっぱいに広げる */
+      text-align: center; /* 中央寄せ */
+      white-space: normal; /* 改行させる */
+      padding: 5px 5px;
   }
 }
+
 
 
 /* リンクとボタン */
@@ -394,7 +473,6 @@ width: 100%; /* 幅いっぱいに伸ばす */
   box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3); /* ホバー時の影 */
 }
 
-
 /* 特典セクション */
 #features {
     padding: 50px 20px;
@@ -404,66 +482,111 @@ width: 100%; /* 幅いっぱいに伸ばす */
 
 #features h2 {
     font-size: 36px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     color: #ff5e57;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
     border-bottom: 3px solid #FFD700;
     padding-bottom: 10px;
 }
 
+/* 特典カード */
 .feature-item {
-    display: inline-block;
-    width: 90%;
+    display: block;
+    width: 100%; /* 幅を100%に設定 */
     max-width: 400px;
-    margin: 20px;
-    background: linear-gradient(135deg, #800000, #cc3333); /* 深いワインレッドから鮮やかな赤にグラデーション */
-    border-radius: 15px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); /* 影を強調して立体感を保持 */
-    padding: 20px;
+    background: #fff; /* カードの背景色を白に設定 */
+    border: 3px solid #ff5e57; /* 赤い枠線を追加 */
+    border-radius: 15px; /* カードの角を丸める */
+    padding: 40px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     position: relative;
-    border: none; /* 内側の枠を廃止 */
+    opacity: 0; /* 初期状態は非表示 */
+    transform: translateY(100px); /* 初期位置を下にずらす */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* アニメーション設定 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 軽い影を付けて立体感を追加 */
 }
 
-.feature-item:hover {
-    transform: scale(1.05); /* ホバー時に拡大 */
-    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.3); /* より強い影 */
-    background: linear-gradient(135deg, #b20000, #ff4d4d); /* より鮮やかな赤に変更 */
-}
-
-/* 特典カードのタイトルに高級感を追加 */
-#features .feature-item h3 {
-    font-family: 'Playfair Display', serif; /* 高級感のあるセリフ体 */
+/* 特典カードのタイトル */
+#features .feature-item h4 {
+   
     font-weight: 700;
-    color: #fff; /* 白文字 */
+    color: #ff5e57; /* タイトルの文字色を赤に設定 */
     font-size: 26px;
     margin-bottom: 15px;
-    letter-spacing: 2px; /* 文字間隔を広げて上品に */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* フォントに影を追加 */
-  text-align: left; /* テキストを左寄せ */
+    letter-spacing: 1.5px; /* 文字間隔を少し広げる */
+    text-align: center; /* テキストを中央寄せ */
 }
 
 /* 特典カード内のテキスト */
 .feature-item p {
     font-size: 18px;
-    color: #fff;
+    color: #555;
     margin-top: 10px;
     line-height: 1.5;
 }
 
+.feature-item ul {
+    list-style: none; /* デフォルトのリストマーカーを削除 */
+    padding: 0; /* パディングをリセット */
+    margin: 0; /* マージンをリセット */
+    text-align: left; /* 左寄せ */
+}
 
-/* 光沢感を出すためのハイライト */
-.feature-item::before {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    background: rgba(255, 255, 255, 0.1);  /* 軽いハイライト */
-    border-radius: 15px;
-    pointer-events: none; /* クリックを無視 */
+.feature-item ul li {
+    font-size: 16px; /* フォントサイズを設定 */
+    color: #333; /* 少し濃い文字色 */
+    margin-bottom: 10px; /* リスト間の間隔を広げる */
+    line-height: 1.8; /* 行間を広げて読みやすく */
+    position: relative; /* 擬似要素のための基準 */
+    padding-left: 25px; /* カスタムアイコンの余白 */
+}
+
+.feature-item ul li::before {
+    content: "✓"; /* カスタムアイコン（チェックマーク） */
+    color: #ff5e57; /* カスタムアイコンの色を設定 */
+    font-size: 18px; /* アイコンのサイズを設定 */
+    position: absolute; /* アイコンの配置を制御 */
+    left: 0; /* テキストの左端に配置 */
+    top: 50%; /* アイコンを中央に揃える */
+    transform: translateY(-50%); /* 垂直中央揃え */
+    font-weight: bold; /* アイコンを強調 */
+}
+
+
+
+/* アニメーションが発火したときの状態 */
+.feature-item.visible {
+    opacity: 1; /* 表示 */
+    transform: translateX(0); /* 元の位置に移動 */
+}
+
+/* 最大2列のグリッド設定 */
+#features-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 最大2列に設定 */
+    gap: 20px; /* カード間の間隔 */
+    align-items: center; /* アイテムを垂直方向にも中央寄せ */
+}
+
+/* 左列のカードは右寄せ */
+#features-container .feature-item:nth-child(odd) {
+    margin-left: auto; /* 左側のカードを右寄せ */
+}
+
+/* 右列のカードは左寄せ */
+#features-container .feature-item:nth-child(even) {
+    margin-right: auto; /* 右側のカードを左寄せ */
+}
+
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+    #features-container {
+        grid-template-columns: 1fr; /* 1列に設定 */
+    }
+    #features-container .feature-item {
+        margin: 0 auto; /* カードを中央揃え */
+    }
 }
 
 
@@ -641,7 +764,7 @@ header nav ul li a:hover {
 
 /* LINEボタン */
 .cta-button {
-    display: inline-block;
+    display: block;
     padding: 10px 20px;
     font-size: 18px;
     color: #fff;
@@ -649,7 +772,9 @@ header nav ul li a:hover {
     border-radius: 5px;
     text-decoration: none;
     transition: transform 0.3s, box-shadow 0.3s;
-    margin-top: 20px;
+  margin: 20px auto; /* 上下の余白を20px、中央揃え */
+    text-align: center; /* ボタン内のテキストを中央揃え */
+    max-width: fit-content; /* ボタンの幅をテキストに合わせる */
 }
 
 .cta-button:hover {
@@ -843,27 +968,30 @@ header#top-page {
   margin: 50px auto 20px auto;
   box-sizing: border-box;
   justify-content: center;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(135deg, #800000, #e60000); /* グラデーション */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* シャドウを残す */
+  background: linear-gradient(135deg, #9b2d20, #f1a5a1, #8b0000); /* 落ち着いた深みのある赤系 */
   color: white;
   text-align: center;
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
+  padding: 40px;
+  font-family: 'Poppins', sans-serif;
 }
+
 
 header#top-page h1 {
   font-size: 2.2rem;
   margin-bottom: 10px;
-  font-weight: 700; /* 太字にして目立たせる */
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); /* 軽いシャドウで立体感 */
 }
 
 header#top-page p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 15px;
   line-height: 1.6;
   opacity: 0.9;
 }
+
 
 /* スタートセクション */
 .start {
@@ -934,7 +1062,6 @@ header#top-page p {
 
 
 header#question-top {
-    font-family: 'A1 Mincho', serif;
   background-color: #800000;
   color: #fff;
   display: flex;
@@ -1268,12 +1395,6 @@ main#question-cards {
 }
 
 
-
-
-
-
-
-
 /* 画像、名前、タイトルを横並びにする */
 .seniorGreeting-header {
   display: flex; /* 横並び */
@@ -1323,6 +1444,78 @@ main#question-cards {
   font-style: italic; /* 斜体でメッセージを強調 */
   color: #333;
 }
+
+
+/* FAQセクションスタイル */
+#faq {
+  padding: 40px 20px;
+  background-color: #fff5f5; /* 柔らかい赤みを帯びた背景 */
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 2px solid #ff5e57; /* メインカラーの赤 */
+  box-shadow: 0 8px 20px rgba(255, 94, 87, 0.2); /* 赤の影 */
+}
+
+#faq h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #d84e47; /* 深みのあるメインカラー赤 */
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.qa-item {
+  margin-bottom: 15px;
+  padding: 15px 25px;
+  background: #fff;
+  border: 1px solid #ffcccc; /* 赤みを帯びたボーダー */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.qa-item .question {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff5e57; /* メインカラーの赤 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.qa-item .question::after {
+  content: '+';
+  font-size: 24px;
+  color: #ff5e57; /* ポイントカラーの黄色 */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.qa-item.open .question::after {
+  transform: rotate(45deg);
+  color: #e6be34; /* 回転後に少し濃い黄色に */
+}
+
+.qa-item .answer {
+  display: none;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.8;
+  border-left: 4px solid #ff5e57; /* メインカラーの赤でラインを追加 */
+  padding-left: 15px;
+  background-color: #fff8e1; /* 柔らかな黄色の背景 */
+  border-radius: 8px;
+}
+
+.qa-item.open .answer {
+  display: block;
+}
+
+
 
 
 
