@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
   createAdminLinks();
 });
 
-
+window.scrollTo(0, 0);  // ページの一番上にスクロール
 
 // 全てのステップを取得
 const steps = document.querySelectorAll('.step');
