@@ -1,5 +1,5 @@
-
 document.addEventListener("DOMContentLoaded", () => {
+  // 診断結果タイプと表記の対応リスト
   const testTypeLabels = [
     { type: "socialType", label: "蓮斗代表" },
     { type: "empathyType", label: "裕貴Producer" },
@@ -13,23 +13,29 @@ document.addEventListener("DOMContentLoaded", () => {
     { type: "gentleType", label: "優FP" },
   ];
 
-  // 管理者リンクを作成
-  const adminLinkList = document.getElementById("admin-link-list");
-  if (!adminLinkList) {
-    console.error("#admin-link-list が見つかりません");
-    return;
+  // 管理者リンクを作成する関数
+  function createAdminLinks() {
+    const adminLinkList = document.getElementById("admin-link-list");
+    testTypeLabels.forEach(({ type, label }) => {
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = "#";
+      link.textContent = `テスト：${label}`;
+      link.style.display = "block";
+      link.style.margin = "10px 0";
+      link.style.color = "blue";
+      link.style.textDecoration = "underline";
+
+      // リンククリック時の動作
+      link.addEventListener("click", (event) => {
+        event.preventDefault(); // デフォルトのリンク動作を無効化
+        skipToResult(type); // 該当タイプの診断結果を表示
+      });
+
+      listItem.appendChild(link);
+      adminLinkList.appendChild(listItem);
+    });
   }
-
-  testTypeLabels.forEach(({ type, label }) => {
-    const listItem = document.createElement("li");
-    const link = document.createElement("a");
-    link.href = "#";
-    link.textContent = `テスト：${label}`;
-    listItem.appendChild(link);
-    adminLinkList.appendChild(listItem);
-  });
-});
-
 
   // テスト用：診断結果を直接表示
   function skipToResult(testType) {
