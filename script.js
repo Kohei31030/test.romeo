@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 診断結果タイプと表記の対応リスト
   const testTypeLabels = [
     { type: "socialType", label: "蓮斗代表" },
-    { type: "empathyType", label: "裕貴Producer" },
+    { type: "empathyType", label: "裕貴P" },
     { type: "passionType", label: "龍駕主任" },
-    { type: "analysisType", label: "春馬Director" },
-    { type: "adventurousType", label: "瑠衣Executive Player" },
+    { type: "analysisType", label: "春馬D" },
+    { type: "adventurousType", label: "瑠衣EP" },
     { type: "ambitionType", label: "流華社長" },
     { type: "resilienceType", label: "騎士CEO" },
     { type: "PogitiveType", label: "やまとFP" },
@@ -111,7 +111,7 @@ window.addEventListener('scroll', () => {
         const windowHeight = window.innerHeight;
 
         // 要素の50％が画面内に入ったら "active" クラスを追加
-        if (rect.top < windowHeight * 0.25 && rect.bottom > windowHeight * 0.25) {
+        if (rect.top < windowHeight * 0.15 && rect.bottom > windowHeight * 0.15) {
             step.classList.add('active');
         } else {
             step.classList.remove('active');
@@ -131,8 +131,8 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    rootMargin: '0px 0px -25% 0px', // 要素の半分が画面に入った時点で発火
-    threshold: 0.25, // 要素が50%見えた時に発火
+    rootMargin: '0px 0px -15% 0px', // 要素の半分が画面に入った時点で発火
+    threshold: 0.15, // 要素が50%見えた時に発火
   }
 );
 
@@ -578,7 +578,7 @@ analysisType: {
     approach: "クリエイティブな活動を取り入れたデートを提案すると良いです。例えばアートワークショップやDIY体験に誘うと、二人で楽しめる時間が作れます。",
     seniorGreeting: {
       name: "たいき",
-      title: "FP",
+      title: "Future Player",
       imageUrl: "https://www.host2.jp/shop/romeo_1/taiki/pr01.jpg",
       profile: "常に新しいアイデアでお客様を驚かせる柔軟な発想力の持ち主。創造力を武器に、独自の接客スタイルを確立している。",
       advice: "君のアイデアは人を魅了する力がある。ホストとしても、斬新な方法でお客様を楽しませることができるだろう。その想像力を思い切り発揮して、新しい価値を提供しよう！"
