@@ -1393,7 +1393,7 @@ main#question-cards {
   display: flex; /* 横並び */
   align-items: center; /* 垂直方向中央揃え */
   justify-content: center; /* 水平方向中央揃え */
-  gap: 20px; /* 各要素間の間隔 */
+  gap: 10px; /* 各要素間の間隔 */
   margin-bottom: 20px; /* 下部余白 */
 }
 
@@ -1408,7 +1408,7 @@ main#question-cards {
 
 /* 名前のスタイル */
 #senior-name {
-  font-size: 2rem; /* 大きい文字サイズ */
+  font-size: 1.8rem; /* 大きい文字サイズ */
   font-weight: bold; /* 太字で強調 */
   color: #333; /* ダークカラー */
   margin: 50px 0 5px; /* 上下の余白調整 */
