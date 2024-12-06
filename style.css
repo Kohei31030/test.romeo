@@ -281,24 +281,43 @@ header#result-page {
   filter: blur(2px); /* 反射にぼかしを加えてリアル感をアップ */
   opacity: 0.6; /* 反射部分を少し透明に */
 }
-
-
-
-
+/* LINEボタン */
 .cta-button {
-    background-color: #FFD700;
-    color: #111;
-    padding: 15px 30px;
-    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
     font-size: 18px;
+    color: #fff;
+    background: linear-gradient(90deg, #00C300, #009900);
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+  margin: 20px auto; /* 上下の余白を20px、中央揃え */
+    text-align: center; /* ボタン内のテキストを中央揃え */
+    max-width: fit-content; /* ボタンの幅をテキストに合わせる */
+   animation: bounce 1s infinite; /* 定期的に跳ねるアニメーションを適用 */
+font-weight: bold; /* フォントを太字にする */
+  border-radius: 30px; /* ボタンの角を丸くする */
 }
+
 
 .cta-button:hover {
     background-color: #d4ac0d;
     transform: scale(1.05);
 }
+
+
+/* ボタンの跳ねる動き */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* 初期位置 */
+    }
+    50% {
+        transform: translateY(-10px); /* 上方向に10px移動 */
+    }
+}
+
+
+
 
 #merits {
     text-align: center;
@@ -466,6 +485,7 @@ width: 100%; /* 幅いっぱいに伸ばす */
   border-radius: 10px; /* ボタンを角丸にする */
   display: inline-block; /* ボタンのブロック表示 */
   transition: all 0.3s ease; /* ホバー時のアニメーション */
+  margin-top: 30px;
 }
 
 .other-recruit:hover {
@@ -620,12 +640,6 @@ width: 100%; /* 幅いっぱいに伸ばす */
 
 
 
-/* インタラクティブ性の追加 */
-.cta-button:hover {
-    background-color: #d4ac0d;
-    transform: scale(1.05) rotate(5deg);
-}
-
 
 
 /* 配色のアクセント */
@@ -762,25 +776,7 @@ header nav ul li a:hover {
     }
 }
 
-/* LINEボタン */
-.cta-button {
-    display: block;
-    padding: 10px 20px;
-    font-size: 18px;
-    color: #fff;
-    background: linear-gradient(90deg, #00C300, #009900);
-    border-radius: 5px;
-    text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-  margin: 20px auto; /* 上下の余白を20px、中央揃え */
-    text-align: center; /* ボタン内のテキストを中央揃え */
-    max-width: fit-content; /* ボタンの幅をテキストに合わせる */
-}
 
-.cta-button:hover {
-    box-shadow: 0 8px 20px rgba(0, 200, 0, 0.5);
-    transform: translateY(-3px);
-}
 
 
 .floating-button {
@@ -1234,12 +1230,9 @@ main#question-cards {
   display: flex;
   justify-content: center; /* 横方向に中央寄せ */
   align-items: center;     /* 縦方向に中央寄せ */
-  height: 100vh;           /* 画面全体の高さ */
+  aspect-ratio: 1 / 1;
   width: 100%;             /* 横幅は画面全体 */
 }
-
-
-
 
 #radar-chart {
    max-width: 90%;  /* 最大幅90%に設定（画面に合わせて調整） */
@@ -1520,46 +1513,7 @@ main#question-cards {
 
 
 
-/* リンクとボタン */
-.host-club-link {
-  text-decoration: none;
-  color: #ff5e57;
-  font-weight: bold;
-  font-size: 1.2rem;
-  display: inline-block;
-  margin-top: 20px;
-  padding: 15px 25px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
 
-.host-club-link:hover {
-  background-color: #ff5e57;
-  color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(255, 94, 87, 0.3);
-}
-
-/* 「ホストクラブ1日体験に参加する」リンク */
-a.host-club-link {
-  background-color: #ff5e57;
-  color: #fff;
-  padding: 15px 30px;
-  font-size: 1.3rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-a.host-club-link:hover {
-  background-color: #ff9a8b;
-  transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(255, 94, 87, 0.4);
-}
 
 #limited-offer{
   max-width: 1000px;
