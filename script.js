@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function skipToResult(testType) {
     const resultData = personalityResults[testType] || {};
 
-    if (!resultData.type) {
+    if (!resultData || !resultData.type) {
       console.error("診断結果データが見つかりませんでした。");
       alert("診断結果データが見つかりませんでした。エラーが発生しました。");
       return;
@@ -64,27 +64,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 【】の中身をそのまま h1 タグに変換し、【】を除去
     let resultTypeElement = document.getElementById("result-type");
-    resultTypeElement.innerHTML = resultText.replace(/【(.*?)】/, '<br><h1>$1</h1>');
-
-    // 【】を含む部分を取り出して、h3 タグ内に表示
-    let match = resultText.match(/【.*?】/);
-    if (match) {
-      let resultTypeAdviceElement = document.getElementById("result-type-advice");
-      resultTypeAdviceElement.innerHTML = match[0];
-    }
+    resultTypeElement.innerHTML = resultText.replace(/【(.*?)】/g, '<br><h1>$1</h1>');
 
     // 先輩のアドバイス情報を表示
     const senior = resultData.seniorGreeting || {};
-    setText("senior-name", senior.name);
-    setText("senior-title", senior.title);
+    setText("senior-name-1", senior.name);
+    setText("senior-title-1", senior.title);
     setText("senior-profile", senior.profile);
     setText("senior-advice", senior.advice);
+    setText("senior-name-2", senior.name);
+    setText("senior-title-2", senior.title);
 
     // 先輩の画像を設定
-    const imageElement = document.getElementById('senior-irc');
-    if (imageElement && senior.imageUrl) {
-      imageElement.src = senior.imageUrl;
-      imageElement.style.display = "block";
+    const imageElement1 = document.getElementById('senior-irc-1');
+    const imageElement2 = document.getElementById('senior-irc-2');
+    if (imageElement1 && senior.imageUrl) {
+      imageElement1.src = senior.imageUrl;
+      imageElement1.style.display = "block"; // 画像を表示
+    }
+    if (imageElement2 && senior.imageUrl) {
+      imageElement2.src = senior.imageUrl;
+      imageElement2.style.display = "block"; // 画像を表示
     }
 
     // 他のページを非表示にし、診断結果ページを表示
@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
   createAdminLinks();
 });
 
-window.scrollTo(0, 0);  // ページの一番上にスクロール
 
 // 全てのステップを取得
 const steps = document.querySelectorAll('.step');
@@ -286,31 +285,42 @@ function showResult() {
       let resultTypeElement = document.getElementById("result-type");
       resultTypeElement.innerHTML = resultText.replace(/【(.*?)】/, '<br><h1>$1</h1>');
   
-      // 【】を含む部分を取り出して、h3 タグ内に表示
-      let match = resultText.match(/【.*?】/);
-      if (match) {
-          let resultTypeAdviceElement = document.getElementById("result-type-advice");
-          resultTypeAdviceElement.innerHTML = match[0]; // 【】を含む部分を挿入
-      }
-  
-      // 先輩のアドバイス情報を表示
-      const senior = resultData.seniorGreeting || {};
-      setText("senior-name", senior.name);
-      setText("senior-title", senior.title);
-      setText("senior-profile", senior.profile);
-      setText("senior-advice", senior.advice);
-  
-      // 先輩の画像を設定
-      const imageElement = document.getElementById('senior-irc');
-      if (imageElement && senior.imageUrl) {
-        imageElement.src = senior.imageUrl;
-        imageElement.style.display = "block"; // 画像を表示
-      }
-  
-      // 表示を結果ページに切り替え
-      document.getElementById("loading").style.display = "none";
-      document.getElementById("result").style.display = "block";  // 結果ページを表示
-      window.scrollTo(0, 0);  // ページの一番上にスクロール
+    // 【】を含む部分を取り出して、h3 タグ内に表示
+let match = resultText.match(/【.*?】/);
+if (match) {
+    let resultTypeAdviceElement1 = document.getElementById("result-type-advice-1");
+    let resultTypeAdviceElement2 = document.getElementById("result-type-advice-2");
+    
+    // 【】を含む部分をそれぞれに挿入
+    resultTypeAdviceElement1.innerHTML = match[0];
+    resultTypeAdviceElement2.innerHTML = match[0];
+}
+
+// 先輩のアドバイス情報を表示
+const senior = resultData.seniorGreeting || {};
+setText("senior-name-1", senior.name);
+setText("senior-title-1", senior.title);
+setText("senior-profile", senior.profile);
+setText("senior-advice", senior.advice);
+setText("senior-name-2", senior.name);
+setText("senior-title-2", senior.title);
+
+// 先輩の画像を設定
+const imageElement1 = document.getElementById('senior-irc-1');
+const imageElement2 = document.getElementById('senior-irc-2');
+if (imageElement1 && senior.imageUrl) {
+    imageElement1.src = senior.imageUrl;
+    imageElement1.style.display = "block"; // 画像を表示
+}
+if (imageElement2 && senior.imageUrl) {
+    imageElement2.src = senior.imageUrl;
+    imageElement2.style.display = "block"; // 画像を表示
+}
+
+// 表示を結果ページに切り替え
+document.getElementById("loading").style.display = "none"; // ローディング画面を非表示
+document.getElementById("result").style.display = "block"; // 結果ページを表示
+  window.scrollTo(0, 0);  // ページの一番上にスクロール
     }, 3000); // 3秒後に結果ページを表示
 }
 
