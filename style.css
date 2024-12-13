@@ -1245,6 +1245,83 @@ main#question-cards {
   box-sizing: border-box; /* パディングを含めたサイズ計算 */
 }
 
+#guide {
+  display: flex;
+  flex-direction: column; /* 縦並びに配置 */
+  align-items: center; /* 中央揃え */
+  margin: 20px auto; /* 上下左右の余白 */
+  padding: 20px;
+  border-radius: 15px; /* 角を丸く */
+  max-width: 600px; /* 最大幅を設定 */
+}
+
+#guide .top-section {
+  display: flex; /* 横並び */
+  align-items: center; /* 縦位置を中央揃え */
+  justify-content: center; /* 横位置を中央揃え */
+  width: 100%; /* 全体幅 */
+  margin-bottom: 20px; /* 下段との余白 */
+}
+
+#guide .senior-image {
+  flex-shrink: 0; /* 写真のサイズが縮まらないように */
+  width: 120px; /* 写真サイズ */
+  height: 120px;
+  border-radius: 50%; /* 円形にする */
+ 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* 光沢と影 */
+  object-fit: cover; /* 画像のアスペクト比を保持 */
+  margin-right: 15px; /* 写真と名前の間に余白 */
+}
+
+#guide .text-content {
+  display: flex;
+  flex-direction: column; /* 名前と肩書きを縦に配置 */
+  text-align: center; /* 左揃え */
+}
+
+#guide h4 {
+  font-family: "Arial", sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 0 0 5px;
+}
+
+#guide h5 {
+  font-family: "Arial", sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0;
+}
+
+#guide .speech-bubble {
+  background-color: #fef7e7; /* 吹き出しの背景色を柔らかいクリーム色に変更 */
+  border-radius: 15px; /* 角を丸く */
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.2); /* 立体感のある影 */
+  padding: 20px 25px; /* 内側の余白を調整 */
+  font-size: 1rem;
+  color: #5c4a29; /* テキストを少し濃いブラウンに */
+  position: relative;
+  text-align: center; /* テキストを中央揃え */
+}
+
+#guide .speech-bubble:after {
+  content: "";
+  position: absolute;
+  top: -40px; /* 吹き出しの下 */
+  left: 35%;
+  transform: translateX(-50%);
+  border-width: 20px; /* 吹き出しの大きさ */
+  border-style: solid;
+  border-color:transparent transparent #fef7e7 transparent; /* 吹き出しの背景色と一致 */
+ 
+}
+
+
+
+
+
 /* セクションタイトル */
 #result-details h3 {
   font-size: 1.8rem;
