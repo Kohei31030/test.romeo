@@ -123,10 +123,11 @@
 
   <nav class="nav-bar" id="nav-bar">
     <ul>
+      <li><a href="#result-header">診断top</a></li>
       <li><a href="#hero">求人top</a></li>
       <li><a href="#merits">メリット</a></li>
       <li><a href="#supports">サポート体制</a></li>
-      <li><a href="#features">入店特典</a></li>
+      <li><a href="#features">限定特典</a></li>
       <li><a href="#apply">応募</a></li>
     </ul>
   </nav>
@@ -145,9 +146,27 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <canvas id="radar-chart" width="100" height="100"></canvas>
       </div>
-      <p>あなたの性格にぴったりな女性へのアプローチ法教えます！</p>  <!-- SNSシェアボタン -->  
+      
+     <div id="guide">
+  <div class="top-section">
+    <img id="senior-irc-1"
+      src="example.jpg"
+      alt="先輩ホストの写真" 
+      class="senior-image">
+    <div class="text-content">
+      <h5 id="result-type-advice-1"></h5>
+      <h5 id="senior-title-1"></h5>
+      <h4 id="senior-name-1"></h4>  
+    </div>
+  </div>
+  <div class="speech-bubble">
+    あなたの性格にぴったりな女性へのアプローチ法教えます！
+  </div>
+</div>
+
+     <!-- SNSシェアボタン -->  
     <div class="share-buttons">  
-  <p><br>結果をシェアする⇩<br></p>  
+  <h4><br>結果をシェアする⇩<br></h4>  
   <button onclick="shareToX()">Xでシェア</button>  
 </div>  
     </div>  
@@ -176,7 +195,7 @@
       </section>  
       <section id="suggestion-2">  
         <h3>劇的にモテる自分に変わるチャンス！</h3> <p class="white-text">あなたも、もっと女性とのコミュニケーションを上達させたいと思いませんか？</p>
- <p class="white-text">ホストクラブの1日体験では、プロから直接学べる機会を提供します。女性の心を掴む力を手に入れ、さらに魅力的な男性に生まれ変わるチャンスです。</p> <p>ROMEO Groupは東京（歌舞伎町）、千葉（中央区）、茨城（土浦）の３都県で５店舗を展開。地方からでも即日入寮可能！</p> <p>最初は誰もが未経験、挑戦することであなたの未来は劇的に変わります。今この瞬間が、あなたの人生を変えるターニングポイントです。</p> <p><strong>今すぐ体験して、新しい人生をスタートさせよう！</strong></p>
+ <p class="white-text">ホストクラブの1日体験では、プロから直接学べる機会を提供します。女性の心を掴む力を手に入れ、さらに魅力的な男性に生まれ変わるチャンスです。</p> <p class="white-text">ROMEO Groupは東京（歌舞伎町）、千葉（中央区）、茨城（土浦）の３都県で５店舗を展開。地方からでも即日入寮可能！</p> <p>最初は誰もが未経験、挑戦することであなたの未来は劇的に変わります。今この瞬間が、あなたの人生を変えるターニングポイントです。</p> <p><strong>今すぐ体験して、新しい人生をスタートさせよう！</strong></p>
  
         <!-- スクロールを促す矢印 -->
     <div class="scroll-indicator">
@@ -338,16 +357,16 @@
 
       <!-- 先輩ホストからのメッセージ -->  
       <section class="seniorGreeting">  
-       <h3>あなたと同じ<br><span id="result-type-advice"></span><br>の先輩からのメッセージ</h3>
+       <h3>あなたと同じ<br><span id="result-type-advice-2"></span><br>の先輩からのメッセージ</h3>
         <div class="infoBox"> 
           <div class="seniorGreeting-header">
-             <img id="senior-irc"
+             <img id="senior-irc-2"
     src=""
     alt="先輩ホストの写真" 
     class="senior-image"
   >
-          <h4 id="senior-name"></h4>  
-          <h5 id="senior-title"></h5>  
+          <h4 id="senior-name-2"></h4>  
+          <h5 id="senior-title-2"></h5>  
           </div>  
           <small id="senior-profile"></small>  
         </div>  
@@ -369,7 +388,7 @@
   </div>
   <div class="qa-item">
     <h4 class="question">Q: 勧誘されることが心配です…</h4>
-    <p class="answer">A: しつこい勧誘は一切行いません。安心して体験を楽しんでください！</p>
+    <p class="answer">A: しつこい勧誘は<strong>一切行いません。</strong>安心して体験を楽しんでください！</p>
   </div>
   <div class="qa-item">
     <h4 class="question">Q: 体験後にお金はもらえますか？</h4>
@@ -377,7 +396,7 @@
   </div>
   <div class="qa-item">
     <h4 class="question">Q: 人と話す事が苦手でも働けますか？</h4>
-    <p class="answer">A: 最初は誰でも不安です。トレーニングを通じて、<strong>接客スキル</strong>を身につけていくことができます。</p>
+    <p class="answer">A: 最初は誰でも不安です。接客スキルが身に付くよう全力でサポートします。</p>
   </div>
   <div class="qa-item">
     <h4 class="question">Q: 年齢制限はありますか？</h4>
@@ -389,15 +408,15 @@
   </div>
   <div class="qa-item">
     <h4 class="question">Q: 今のお店を辞めさせてもらえるか不安です。</h4>
-    <p class="answer">A: <strong>ROMEO Group</strong>には移籍等の全てのトラブル解決専門の部署があります。<br>どんな悩みも全てお任せください。</p>
+    <p class="answer">A: ROMEO Groupには移籍等の全ての<strong>トラブル解決専門の部署</strong>があります。<br>どんな悩みも全てお任せください。</p>
   </div>
   <div class="qa-item">
     <h4 class="question">Q: 毎日の出勤が難しいです。続けられるかも不安です。</h4>
-    <p class="answer">A: <strong>バイト出勤も可能</strong>です。様々な事情に応じて自分のペースで働くことができます。</p>
+    <p class="answer">A: <strong>バイト出勤も可能</strong>です。様々な事情に応じて自分のペースで働くことができます。退店時にも残るよう強要するようなことは一切ないのでご安心ください</p>
   </div>
   <div class="qa-item">
     <h4 class="question">Q: 友人と一緒に応募することは可能ですか？</h4>
-    <p class="answer">A: 可能です！一緒に体験していただけるよう調整します。</p>
+    <p class="answer">A: 可能です！一緒に体験していただけるよう調整いたします。</p>
   </div>
 </section>
 
@@ -430,7 +449,7 @@
   <div class="apply-steps">
       <div class="step current">
           <h3>1. LINEで問い合わせ</h3>
-          <p>まずはLINEを追加して「問い合わせ」と送信！<br>ちょっとした質問でも、LINEでなんでも聞いてください！もちろんお電話でも可能です。</p>
+          <p>まずはLINEを追加して<strong>「問い合わせ」</strong>と送信！<br>ちょっとした質問でも、LINEでなんでも聞いてください！もちろんお電話でも可能です。</p>
       </div>
       <div class="step">
           <h3>2. 面談</h3>
