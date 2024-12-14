@@ -86,7 +86,16 @@ document.addEventListener("DOMContentLoaded", () => {
       imageElement2.src = senior.imageUrl;
       imageElement2.style.display = "block"; // 画像を表示
     }
-
+   // 【】を含む部分を取り出して、h3 タグ内に表示
+  let match = resultText.match(/【.*?】/);
+  if (match) {
+    let resultTypeAdviceElement1 = document.getElementById("result-type-advice-1");
+    let resultTypeAdviceElement2 = document.getElementById("result-type-advice-2");
+    
+    // 【】を含む部分をそれぞれに挿入
+    resultTypeAdviceElement1.innerHTML = match[0];
+    resultTypeAdviceElement2.innerHTML = match[0];
+  }
     // 他のページを非表示にし、診断結果ページを表示
     document.getElementById("top-page").style.display = "none";
     document.getElementById("questions").style.display = "none";
